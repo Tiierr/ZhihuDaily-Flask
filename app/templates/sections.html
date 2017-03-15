@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}知乎日报{% endblock %}
+{% block row %}
+<div class="row">
+  <div class="col-lg-4">
+    {% for section in sections[0:7] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.section', id=section.id) }}" class="link-button">
+            <img src="{{ section.thumbnail }}" class="preview-image">
+            <span class="title">{{ section.name }}  {{ section.description }}</span>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for section in sections[7:14] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.section', id=section.id) }}" class="link-button">
+            <img src="{{ section.thumbnail }}" class="preview-image">
+            <span class="title">{{ section.name }}  {{ section.description }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for section in sections[14:] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.section', id=section.id) }}" class="link-button">
+            <img src="{{ section.thumbnail }}" class="preview-image">
+            <span class="title">{{ section.name }} {{ section.description }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% if pagination %}
+  <div class="pagination center" >
+      {{ macros.pagination_widget(pagination, '.sections') }}
+  </div>
+{% endif %}
+{% endblock %}

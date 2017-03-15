@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}搜索结果{% endblock %}
+
+{% block main_content %}
+<div class="center height">
+<div class="container">
+  <div class="posts">
+    {% if stories %}
+      {% for story in stories %}
+        <a href="{{ url_for('main.news', id=story.id) }}">
+        <h2>{{ story.title }}</h2>
+        </a>
+      {% endfor %}
+    {% else %}
+      <h1 class="center">抱歉，你懂的太多辣！</h1>
+    {% endif %}
+</div>
+</div>
+</div>
+  {% if pagination and stories %}
+    <div class="pagination center" >
+        {{ macros.pagination_widget(pagination, '.search') }}
+    </div>
+  {% endif %}
+
+{% endblock %}

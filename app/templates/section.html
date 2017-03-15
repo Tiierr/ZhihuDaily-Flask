@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{ section.name }}{% endblock %}
+{% block row %}
+<div class="row">
+  <div class="col-lg-4">
+    {% for new in news[0:6] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.new', id=new.id) }}" class="link-button">
+            <img src="{{ new.image }}" class="preview-image">
+            <span class="title">{{ new.title }}</span>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for new in news[6:12] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.new', id=new.id) }}" class="link-button">
+            <img src="{{ new.image }}" class="preview-image">
+            <span class="title">{{ new.title }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for new in news[12:] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.new', id=new.id) }}" class="link-button">
+            <img src="{{ new.image }}" class="preview-image">
+            <span class="title">{{ new.title }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% if pagination %}
+  <div class="pagination center" >
+      {{ macros.pagination_widget(pagination, '.section', id=section.id) }}
+  </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths show-download-banner hb-loaded">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>{% block title %}{% endblock %}</title>
+<meta name="apple-itunes-app" content="app-id=639087967, app-argument=zhihudaily://story/9284277">
+<meta name="viewport" content="user-scalable=no, width=device-width">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/share.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.auto.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/new_home_v3.auto.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home-styles.css') }}">
+<link rel="shortcut icon" href="{{ url_for('main.index') }}" type="image/x-icon">
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modernizr-2.6.2.min.js') }}"></script>
+
+<script type="text/javascript">
+  if (localStorage && localStorage.getItem('hideDownloadBanner') !== 'true') {
+  document.documentElement.className += ' show-download-banner';
+  }
+</script>
+</head>
+<body>
+  <div class="global-header">
+  <div class="main-wrap">
+  <div class="top-nav-link">
+    <a href="{{ url_for('main.index') }}" target="_self" title="知乎日报" class="active"><span>返回首页</span></a>
+  </div>
+  </div>
+  </div>
+
+  {% block main %}
+  {% endblock %}
+
+  <div class="footer">
+  <a href="http://www.zhihu.com/">知乎网</a> · © 2017 知乎
+  </div>
+  <script src="{{ url_for('static', filename='js/share.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.1.9.1.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}知乎日报{% endblock %}
+{% block row %}
+<div class="row">
+  <div class="col-lg-4">
+    {% for theme in themes[0:4] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.theme', id=theme.id) }}" class="link-button">
+            <img src="{{ theme.background }}" class="preview-image">
+            <span class="title">{{ theme.name }} ： {{ theme.description }}</span>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for theme in themes[4:8] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.theme', id=theme.id) }}" class="link-button">
+            <img src="{{ theme.background }}" class="preview-image">
+            <span class="title">{{ theme.name }} ： {{ theme.description }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for theme in themes[8:] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.theme', id=theme.id) }}" class="link-button">
+            <img src="{{ theme.background }}" class="preview-image">
+            <span class="title">{{ theme.name }} ： {{ theme.description }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

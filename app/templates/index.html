@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}知乎日报{% endblock %}
+{% block row %}
+<div class="row">
+  <div class="col-lg-4">
+    {% for story in stories[0:10] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.story', id=story.id) }}" class="link-button">
+            <img src="{{ story.image }}" class="preview-image">
+            <span class="title">{{ story.title }}</span>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for story in stories[10:20] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.story', id=story.id) }}" class="link-button">
+            <img src="{{ story.image }}" class="preview-image">
+            <span class="title">{{ story.title }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="col-lg-4">
+    {% for story in stories[20:] %}
+      <div class="wrap">
+        <div class="box">
+          <a href="{{ url_for('main.story', id=story.id) }}" class="link-button">
+            <img src="{{ story.image }}" class="preview-image">
+            <span class="title">{{ story.title }}</span>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% if pagination %}
+  <div class="pagination center" >
+      {{ macros.pagination_widget(pagination,'.index') }}
+  </div>
+{% endif %}
+{% endblock %}

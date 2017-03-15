@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="hb-loaded">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="在中国，资讯类移动应用的人均阅读时长是 5 分钟，而在知乎日报，这个数字是 21。以独有的方式为你提供最高质、最深度、最有收获的阅读体验。">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.auto.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/new_home_v3.auto.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home-styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+  <link rel="shortcut icon" href="http://daily.zhihu.com/favicon.ico" type="image/x-icon">
+
+  <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.1.9.1.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+
+
+  <!--<base target="_blank">-->
+  <base href="." target="_blank">
+  <style>h1,h2,h3 {padding: 0;margin:0}</style>
+  <!--<base target="_blank">-->
+  <base href="." target="_blank">
+</head>
+
+<style id="stylish-16" class="stylish" type="text/css">
+
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.height{
+  height: 500px;
+  margin-top:200px;
+}
+</style>
+
+<body class="home">
+  <a href="javascript:;" title="回到顶部" class="back-to-top"></a>
+  <div class="header navbar-fixed-top">
+    <div class="container-fixed-width clearfix">
+      <div class="top-nav-link">
+        <a href="javascript:;" data-offset="470" class=""><span>浏览内容</span></a>
+        <a class="" href="{{ url_for('main.search') }}"> <span>搜索</span></a>
+        <a class="" href="{{ url_for('main.themes') }}"> <span>主题日报</span></a>
+        <a class="" href="{{ url_for('main.sections') }}"><span>热门栏目</span></a>
+        <a href="{{ url_for('main.index') }}" data-offset="0" class="active"><span>知乎日报</span></a>
+      </div>
+      <h1 class="logo"><a href="http://daily.zhihu.com/" title="知乎日报" class="link-logo">知乎日报</a></h1>
+    </div>
+  </div>
+{% block main_content %}
+  <div class="main-content">
+    <div class="container-fixed-width">
+      <div class="section-head">
+        <div class="tip">最新内容</div>
+        <div class="section-head-title">浏览内容</div>
+      </div>
+      <div class="main-content-wrap">
+        {% block row %}
+
+        {% endblock %}
+        </div>
+      </div>
+      </div>
+      {% endblock %}
+        <div class="footer">
+          <div class="container-fixed-width">
+            <div class="qr-bottom">
+              <div class="qr-frame">
+                <img src="http://ww1.sinaimg.cn/large/647dc635ly1fdjuguufstj203r03rdfm"></div>
+                <div class="tip">扫描下载客户端</div>
+            </div>
+            <div class="info-wrap">
+              <p>知乎日报是一款拥有千万用户的资讯类客户端，每日提供来自知乎社区的精选问答，还有国内一流媒体的专栏特稿。</p>
+              <p>主题日报包括动漫、设计、大公司、游戏、财经、电影、电子音乐、互联网安全等丰富内容，为业内人和资深爱好<br>者推荐各领域最精彩文章，满足高质量阅读需求。</p>
+              <p>在知乎日报，告别浮躁，重获阅读的愉悦。</p>
+              <p>© 2017 知乎</p>
+            </div>
+          </div>
+        </div>
+        <script src="{{ url_for('static', filename='js/zepto.min.js.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/new_home.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/wdapi.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/key121121.js') }}"></script>
+  </body>
+  </html>
